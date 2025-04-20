@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // Configura variables de entorno si es necesario
+        // Configura variables de entorno si es necesario var
+        
         BUILD_DIR = "dist" // Carpeta de salida del build
     }
 
