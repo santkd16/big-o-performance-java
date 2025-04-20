@@ -3,9 +3,12 @@ services:
   web:
     build: .
     ports:
-      - "8081:8080"  # Puerto 8081 para desarrollo local (evita conflicto con Jenkins)
+      - "8081:3000"  # Cambiado a 3000 porque es el puerto que usa React
     environment:
       NODE_ENV: development
+    volumes:
+      - ./:/app
+      - /app/node_modules
 
   db:
     image: postgres:13
@@ -14,4 +17,4 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydb
     ports:
-      - "5433:5432"  # Puerto alternativo para la base de datos
+      - "5433:5432"
