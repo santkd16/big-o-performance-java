@@ -1,14 +1,23 @@
-FROM node:14
+FROM node:14-alpine  # Versión más ligera
+
 WORKDIR /app
 
-# Primero copia solo package.json
+# Copia solo lo necesario para instalar dependencias
 COPY package.json ./
 
-# Instala dependencias (esto generará package-lock.json internamente)
-RUN npm install
+# Instala dependencias limpias
+RUN npm install --production --silent
 
-# Luego copia todo el resto
+# Copia el resto de la aplicación
 COPY . .
 
+# Variables de entorno
+ENV NODE_ENV=production
+
+# Build de producción
+RUN npm run build
+
+# Servidor estático
+RUN npm install -g serve
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["serve", "-s", "build", "-l", "3000"]
