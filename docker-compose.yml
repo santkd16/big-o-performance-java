@@ -3,11 +3,10 @@ services:
   web:
     build: .
     ports:
-      - "8080:8080"
-    volumes:
-      - ./app:/app  # Ruta local:ruta-en-contenedor (bind mount)
+      - "8081:8080"  # Puerto 8081 para desarrollo local (evita conflicto con Jenkins)
     environment:
       NODE_ENV: development
+
   db:
     image: postgres:13
     environment:
@@ -15,4 +14,4 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydb
     ports:
-      - "5432:5432"
+      - "5433:5432"  # Puerto alternativo para la base de datos
