@@ -3,7 +3,7 @@ services:
   web:
     build: .
     ports:
-      - "${APP_PORT}:8080"  # Usa la variable de Jenkins
+      - "8082:8080" # Usa la variable de Jenkins
     environment:
       NODE_ENV: ci
 
