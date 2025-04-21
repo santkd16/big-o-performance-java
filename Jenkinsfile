@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
         steps {
-            bat 'gradlew.bat clean build'
+            bat 'gradle clean build'
             }
         }
 
