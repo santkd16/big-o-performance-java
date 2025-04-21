@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        BUILD_DIR = "build"  # React usa 'build' en lugar de 'dist'
+        BUILD_DIR = "build"  // React usa 'build' en lugar de 'dist'
     }
 
     stages {
