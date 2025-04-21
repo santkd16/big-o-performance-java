@@ -14,25 +14,25 @@ pipeline {
 
         stage('Install Dependencies') {
         steps {
-        bat 'gradlew.bat clean build'
+            bat 'gradlew.bat clean build'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'docker-compose -f docker-compose.ci.yml up --build -d'
+                bat 'docker-compose -f docker-compose.ci.yml up --build -d'
             }
         }
     }
