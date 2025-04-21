@@ -13,8 +13,8 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
+        steps {
+        bat 'gradlew.bat clean build'
             }
         }
 
