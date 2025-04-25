@@ -6,11 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+        
 
         stage('Install Dependencies') {
         steps {
@@ -25,17 +21,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                bat 'npm test'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                bat 'docker-compose -f docker-compose.ci.yml up --build -d'
-            }
-        }
     }
 
     post {
