@@ -23,10 +23,10 @@ pipeline {
 
     }
 
-    post {
-        always {
-            archiveArtifacts artifacts: 'build/**/*'
-            junit 'junit.xml' 
-        }
-    }
+    // post {
+    //     always {
+    //         archiveArtifacts artifacts: 'build/**/*'
+    //         junit 'junit.xml' 
+    //     }
+    // }
 }
